@@ -1,0 +1,32 @@
+# importing webdriver from selenium
+from selenium import webdriver
+import time
+import os
+import pyautogui  # Import the pyautogui library
+
+# Here Chrome will be used
+driver = webdriver.Chrome()
+
+# URL of the website
+url = "https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=16&ct=1696441769&rver=7.3.6960.0&wp=MBI_SSL&wreply=https%3a%2f%2fwww.microsoft.com%2frpsauth%2fv1%2faccount%2fSignInCallback%3fstate%3deyJSdSI6Imh0dHBzOi8vd3d3Lm1pY3Jvc29mdC5jb20vZW4taW4iLCJMYyI6IjE2MzkzIiwiSG9zdCI6Ind3dy5taWNyb3NvZnQuY29tIn0&lc=16393&id=74335&aadredir=0"
+
+# Opening the website
+driver.get(url)
+
+# Maximizing the browser window (making it full-screen)
+driver.maximize_window()
+
+# Wait for a brief moment to allow the page to load (you can adjust this)
+time.sleep(2)
+
+# Specify the custom folder path where you want to save the screenshot
+custom_folder_path = (
+    "Backend\comparitive_analysis"
+)
+screenshot_path = os.path.join(custom_folder_path, "screenshot.png")
+
+# Take a screenshot of the entire screen using pyautogui
+pyautogui.screenshot(screenshot_path)
+
+# Close the browser
+driver.quit()
